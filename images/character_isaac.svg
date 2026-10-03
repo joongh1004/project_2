@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-isaac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="50%" stop-color="#115e59" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#99f6e4" />
+      <stop offset="50%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-isaac)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#teal-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#teal-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Well & Water Waves -->
+  <g transform="translate(170, 95) scale(1.3)" filter="url(#glow)">
+    <!-- Well rim -->
+    <ellipse cx="60" cy="40" rx="45" ry="18" fill="none" stroke="url(#teal-grad)" stroke-width="5" />
+    <path d="M15 40 V 85 C15 95, 105 95, 105 85 V 40" fill="none" stroke="url(#teal-grad)" stroke-width="5" />
+    <!-- Water Ripple -->
+    <path d="M30 65 Q 45 55, 60 65 T 90 65" fill="none" stroke="#99f6e4" stroke-width="3" />
+    <!-- Olive Branch -->
+    <path d="M40 20 Q 60 5, 80 20" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#teal-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#99f6e4" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">이삭 (Isaac)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">우물을 양보하고 온유함을 지킨 평화의 사람</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"이삭이 다른 우물을 팠더니 다투지 아니하였으므로"</text>
+</svg>

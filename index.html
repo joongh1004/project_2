@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTEN | 에니어그램 맞춤 성경 묵상 & 인터넷 컨텐츠 큐레이션</title>
+  <meta name="description" content="에니어그램과 성경을 바탕으로 영적 성장을 지원하는 대화형 AI 챗봇 및 맞춤 추천 플랫폼 LISTEN">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="sky-theme">
+  <div id="app">
+    
+    <!-- Navigation Header -->
+    <header>
+      <a href="#" class="brand-logo" id="logo-btn">
+        <span class="logo-icon">🕊️</span>
+        <span class="logo-text">LISTEN</span>
+      </a>
+
+      <!-- Main Navigation Tabs -->
+      <nav class="nav-links">
+        <button class="nav-link-btn active" data-tab="hero">
+          <span>🏠 홈 / 진단</span>
+        </button>
+        <button class="nav-link-btn" data-tab="chat">
+          <span>💬 LISTEN Chat</span>
+        </button>
+        <button class="nav-link-btn" data-tab="library">
+          <span>📚 추천 라이브러리</span>
+        </button>
+        <a href="admin.html" class="nav-link-btn">
+          <span>⚙️ 관리자 Admin</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle-btn" aria-label="테마 전환">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINERS -->
+    <main>
+      
+      <!-- 1. HERO LANDING SCREEN (Emotional & Minimalist LISTEN) -->
+      <section id="hero-screen" class="screen-section active">
+        <div class="emotional-hero-card">
+          <div class="hero-image-overlay" style="background-image: url('images/listen_hero_bg.png');"></div>
+          <div class="hero-content">
+            <span class="hero-subtext">Be Still & Listen to His Voice</span>
+            <h1 class="brand-title-accent">LISTEN</h1>
+            <p class="hero-tagline">내면의 소리와 성경 말씀에 귀 기울이는 시간</p>
+            
+            <div class="hero-cta-buttons">
+              <button class="btn-primary btn-lg" id="start-quiz-btn">
+                <span>🕊️ 에니어그램 진단 시작</span>
+                <span>➔</span>
+              </button>
+              <button class="btn-secondary btn-lg" onclick="App.switchTab('chat')">
+                <span>💬 LISTEN Chat 대화</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. LISTEN CHATBOT SCREEN -->
+      <section id="chat-screen" class="screen-section">
+        <div class="chat-layout">
+          
+          <!-- Sidebar Info -->
+          <aside class="chat-sidebar">
+            <div class="user-profile-badge">
+              <div class="profile-wing-tag" id="chat-user-wing">1w9 평화로운 개혁가</div>
+              <div class="profile-name" id="chat-user-name">내 영혼의 프로필</div>
+              <div class="profile-desc" id="chat-user-desc">진단 결과를 기반으로 맞춤형 대화와 컨텐츠가 큐레이션됩니다.</div>
+            </div>
+
+            <button class="btn-outline" style="width: 100%; text-align: center;" id="retest-from-chat-btn">
+              🔄 에니어그램 다시 진단하기
+            </button>
+
+            <div>
+              <div class="sidebar-title">💡 자주 묻는 마음 상태 태그</div>
+              <div class="quick-topic-list">
+                <button class="topic-btn" onclick="ListenChat.sendMessage('', '완벽주의해소')"># 완벽주의와 스트레스</button>
+                <button class="topic-btn" onclick="ListenChat.sendMessage('', '불안퇴치')"># 미래에 대한 불안과 염려</button>
+                <button class="topic-btn" onclick="ListenChat.sendMessage('', '외로움극복')"># 외로움과 감정의 기복</button>
+                <button class="topic-btn" onclick="ListenChat.sendMessage('', '인정욕구')"># 타인의 인정과 번아웃</button>
+                <button class="topic-btn" onclick="ListenChat.sendMessage('', '무기력탈출')"># 무기력과 갈등 회피</button>
+              </div>
+            </div>
+
+            <button class="btn-secondary" style="margin-top: auto; font-size: 0.8rem;" onclick="ListenChat.clearChat()">
+              🗑️ 대화 기록 초기화
+            </button>
+          </aside>
+
+          <!-- Main Chat Window -->
+          <div class="chat-main-box">
+            <div class="chat-box-header">
+              <div class="bot-info">
+                <div class="bot-avatar">🕊️</div>
+                <div>
+                  <div class="bot-name">LISTEN Assistant</div>
+                  <div class="bot-status">● 실시간 영적 컨텐츠 추천 진행 중</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scrollable Messages Area -->
+            <div class="chat-messages-container" id="chat-messages-list">
+              <!-- Rendered via ListenChat -->
+            </div>
+
+            <!-- Input Bar -->
+            <form class="chat-input-bar" onsubmit="event.preventDefault(); const inp=document.getElementById('chat-input-text'); ListenChat.sendMessage(inp.value); inp.value='';">
+              <input type="text" id="chat-input-text" placeholder="오늘 가슴 속 생각이나 마음 상태를 편하게 말씀해 주세요..." autocomplete="off">
+              <button type="submit" class="btn-primary">전송</button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. CONTENT LIBRARY SCREEN -->
+      <section id="library-screen" class="screen-section">
+        <div class="hero-card" style="text-align: left; padding: 32px;">
+          <h2 class="hero-title" style="font-size: 1.8rem; margin-bottom: 8px;">📚 LISTEN 큐레이션 인터넷 컨텐츠 라이브러리</h2>
+          <p class="hero-description" style="margin-bottom: 24px;">에니어그램 유형별 영적 필요를 채워주는 검증된 찬양, 설교, 영성 칼럼, 묵상집 메타데이터 모음입니다.</p>
+          
+          <div class="filter-toolbar" style="margin-bottom: 24px;">
+            <div class="search-box">
+              <span>🔍</span>
+              <input type="text" id="lib-search" placeholder="컨텐츠 제목, 성경 구절, 태그 검색..." oninput="App.renderLibrary()">
+            </div>
+            <div class="filter-selectors">
+              <select id="lib-category" onchange="App.renderLibrary()">
+                <option value="all">전체 카테고리</option>
+                <option value="music">🎵 찬양/CCM</option>
+                <option value="video">🎬 설교/영상</option>
+                <option value="article">📝 영성칼럼</option>
+                <option value="book">📚 묵상집</option>
+                <option value="podcast">🎙️ 팟캐스트</option>
+              </select>
+              <select id="lib-wing" onchange="App.renderLibrary()">
+                <option value="all">전체 에니어그램 날개</option>
+                <option value="1w9">1w9 평화로운 개혁가</option>
+                <option value="1w2">1w2 조력자적 개혁가</option>
+                <option value="2w1">2w1 봉사자</option>
+                <option value="2w3">2w3 주인</option>
+                <option value="3w2">3w2 매력적인 사람</option>
+                <option value="3w4">3w4 전문가</option>
+                <option value="4w3">4w3 귀족</option>
+                <option value="4w5">4w5 보헤미안</option>
+                <option value="5w4">5w4 아티스트</option>
+                <option value="5w6">5w6 문제해결사</option>
+                <option value="6w5">6w5 수호자</option>
+                <option value="6w7">6w7 동반자</option>
+                <option value="7w6">7w6 엔터테이너</option>
+                <option value="7w7">7w8 현실주의자</option>
+                <option value="8w7">8w7 독립군</option>
+                <option value="8w9">8w9 중재자</option>
+                <option value="9w8">9w8 유쾌한 사람</option>
+                <option value="9w1">9w1 몽상가</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="library-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. QUIZ SCREEN -->
+      <section id="quiz-screen" class="screen-section">
+        <div class="quiz-card">
+          <div class="quiz-progress-header">
+            <span>진단 진행도</span>
+            <span class="quiz-progress-count"><span id="current-q-num">1</span> / 10</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+
+          <h2 class="question-title" id="question-title">질문 텍스트가 들어갑니다.</h2>
+          <p class="question-subtitle" id="question-subtitle">질문 서브 타이틀이 들어갑니다.</p>
+
+          <div class="options-container" id="options-container">
+            <!-- Dynamic option buttons -->
+          </div>
+
+          <div class="quiz-footer-actions">
+            <button class="btn-secondary" id="prev-q-btn" style="visibility: hidden;">이전 질문</button>
+            <span style="font-size: 0.85rem; color: var(--text-muted); align-self: center;">답변 선택 시 다음 질문으로 자동 이동합니다</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. RESULT SCREEN -->
+      <section id="result-screen" class="screen-section">
+        <div class="result-container">
+          <div class="hero-card" style="margin-bottom: 24px;">
+            <div class="profile-wing-tag" id="res-wing-code">3w2</div>
+            <h2 class="hero-title" id="res-title">매력적인 사람 (The Charmer)</h2>
+            <div style="color: var(--text-highlight); font-weight: 600; margin-bottom: 12px;" id="res-subtitle">열정적이고 친근하며 성과를 이끄는 리더</div>
+            <p id="res-summary" style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">성격 요약 설명 텍스트</p>
+          </div>
+
+          <!-- Biblical Character Card -->
+          <div class="character-card-box">
+            <div class="character-image-wrapper">
+              <img id="res-char-img" src="images/character_isaac.svg" alt="닮은 성경 인물" class="character-img">
+            </div>
+            <div class="character-info">
+              <span class="character-badge">🕊️ 당신과 닮은 성경 인물</span>
+              <h3 id="res-char-name" class="character-name">성경 인물</h3>
+              <div id="res-char-title" class="character-title">인물 타이틀</div>
+              <blockquote id="res-char-quote" class="character-quote">"대표 구절"</blockquote>
+              <p id="res-char-desc" class="character-desc">인물 설명 텍스트가 들어갑니다.</p>
+            </div>
+          </div>
+
+          <!-- Main Bible Verse Card -->
+          <div class="feature-box" style="margin-bottom: 24px; background: rgba(56, 189, 248, 0.08); border-color: var(--sky-glow);">
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-highlight); margin-bottom: 8px;">
+              <span>📖</span> <span>당신을 향한 주님의 우선 말씀</span>
+            </div>
+            <div id="res-main-ref" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">마태복음 11:28</div>
+            <div id="res-main-text" style="font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; margin-bottom: 12px; color: var(--text-main);">"수고하고 짐 진 자들아 다 내게로 오라..."</div>
+            <div id="res-main-reflection" style="font-size: 0.9rem; color: var(--text-muted); background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px;">말씀 묵상 가이드</div>
+          </div>
+
+          <!-- Growth & Prayer Cards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 32px;">
+            <div class="feature-box">
+              <div style="font-weight: 700; color: var(--text-highlight); margin-bottom: 8px;">🌱 영적 성장 가이드</div>
+              <div id="res-growth-tip" style="font-size: 0.9rem; color: var(--text-muted);">성장 팁 텍스트</div>
+            </div>
+            <div class="feature-box">
+              <div style="font-weight: 700; color: var(--text-highlight); margin-bottom: 8px;">🙏 오늘의 1줄 기도문</div>
+              <div id="res-prayer" style="font-size: 0.9rem; color: var(--text-muted);">기도문 텍스트</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 32px; flex-wrap: wrap;">
+            <button class="btn-primary" onclick="App.switchTab('chat')">
+              <span>💬 이 결과로 LISTEN Chat 대화 시작하기</span>
+            </button>
+            <button class="btn-secondary" id="restart-btn">
+              <span>🔄 다시 진단하기</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/enneagram.js"></script>
+  <script src="js/content_db.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

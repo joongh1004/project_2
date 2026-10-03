@@ -1,0 +1,20 @@
+{
+  "name": "soul-enneagram-project-1",
+  "version": "1.0.0",
+  "description": "Soul Enneagram - 에니어그램 진단 및 맞춤 성경 말씀 웹 서비스",
+  "main": "index.html",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File ./run.ps1",
+    "update-data": "powershell -ExecutionPolicy Bypass -File ./update_data.ps1",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "enneagram",
+    "bible",
+    "korean",
+    "static-site",
+    "github-pages"
+  ],
+  "author": "",
+  "license": "MIT"
+}

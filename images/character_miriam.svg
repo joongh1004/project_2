@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-miriam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#be185d" />
+      <stop offset="50%" stop-color="#831843" />
+      <stop offset="100%" stop-color="#4c1d95" />
+    </linearGradient>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="50%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-miriam)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#rose-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#rose-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Tambourine & Notes -->
+  <g transform="translate(170, 95) scale(1.3)" filter="url(#glow)">
+    <!-- Tambourine Circle -->
+    <circle cx="60" cy="60" r="45" fill="none" stroke="url(#rose-grad)" stroke-width="6" />
+    <!-- Jingles -->
+    <circle cx="60" cy="15" r="7" fill="#fef08a" />
+    <circle cx="105" cy="60" r="7" fill="#fef08a" />
+    <circle cx="60" cy="105" r="7" fill="#fef08a" />
+    <circle cx="15" cy="60" r="7" fill="#fef08a" />
+    <!-- Musical notes -->
+    <path d="M85 30 L105 20 V45 M105 20 L120 15 V40" stroke="#f472b6" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#rose-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#f472b6" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">미리암 (Miriam)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">기쁨의 소고로 찬양한 예언자</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"너희는 여호와를 찬송하라 그는 높고 영화로우심이요"</text>
+</svg>

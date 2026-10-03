@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-abe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="50%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#431407" />
+    </linearGradient>
+    <linearGradient id="starlight-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-abe)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#starlight-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#starlight-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Stars & Tent / Covenant Altar -->
+  <g transform="translate(170, 95) scale(1.3)" filter="url(#glow)">
+    <!-- Starbursts -->
+    <path d="M60 15 L64 28 L78 28 L67 36 L71 50 L60 41 L49 50 L53 36 L42 28 L56 28 Z" fill="#fef08a" />
+    <path d="M25 35 L28 45 L38 45 L30 51 L33 61 L25 54 L17 61 L20 51 L12 45 L22 45 Z" fill="#fef08a" opacity="0.8" />
+    <path d="M95 35 L98 45 L108 45 L100 51 L103 61 L95 54 L87 61 L90 51 L82 45 L92 45 Z" fill="#fef08a" opacity="0.8" />
+    <!-- Tent -->
+    <path d="M60 55 L20 105 H100 Z" fill="none" stroke="url(#starlight-grad)" stroke-width="4" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#starlight-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#fef08a" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">아브라함 (Abraham)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">평화와 순종으로 복의 근원이 된 조상</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"우리는 한 친족이라 다투게 하지 말자"</text>
+</svg>

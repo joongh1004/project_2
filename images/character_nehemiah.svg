@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-neh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="steel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-neh)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#steel-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#steel-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Shield & Wall -->
+  <g transform="translate(170, 95) scale(1.3)" filter="url(#glow)">
+    <!-- Shield -->
+    <path d="M60 15 L105 30 V65 C105 95 60 115 60 115 C60 115 15 95 15 65 V30 Z" fill="url(#steel-grad)" opacity="0.85" />
+    <!-- Cross on shield -->
+    <path d="M52 35 H68 V55 H88 V71 H68 V95 H52 V71 H32 V55 H52 Z" fill="#0f172a" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#steel-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">느헤미야 (Nehemiah)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">성벽을 재건하는 신실한 수호자</text>
+  <text x="250" y="424" text-anchor="middle" fill="#64748b" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"우리 하나님이 우리를 위하여 싸우시리라"</text>
+</svg>

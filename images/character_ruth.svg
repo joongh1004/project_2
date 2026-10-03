@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-ruth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f" />
+      <stop offset="50%" stop-color="#854d0e" />
+      <stop offset="100%" stop-color="#3f6212" />
+    </linearGradient>
+    <linearGradient id="amber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-ruth)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#amber-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#amber-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Wheat Sheaf & Heart -->
+  <g transform="translate(170, 90) scale(1.3)" filter="url(#glow)">
+    <!-- Wheat Stalks -->
+    <path d="M40 100 Q 60 20, 60 20 Q 60 20, 80 100" fill="none" stroke="url(#amber-grad)" stroke-width="4" />
+    <path d="M60 20 L50 35 M60 20 L70 35 M60 40 L45 55 M60 40 L75 55 M60 60 L40 75 M60 60 L80 75" stroke="url(#amber-grad)" stroke-width="3" stroke-linecap="round" />
+    <!-- Heart Symbol -->
+    <path d="M60 105 C50 90, 30 90, 30 75 C30 65, 40 60, 50 65 C55 68, 60 75, 60 75 C60 75, 65 68, 70 65 C80 60, 90 65, 90 75 C90 90, 70 90, 60 105 Z" fill="#fef08a" opacity="0.8" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#amber-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#fef08a" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">룻 (Ruth)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">신실함과 희망의 따뜻한 동반자</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"어머니의 백성이 나의 백성이 되고..."</text>
+</svg>

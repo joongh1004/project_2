@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-david" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#422006" />
+      <stop offset="50%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-david)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#gold-grad)" stroke-width="3" opacity="0.7" />
+  <rect x="24" y="24" width="452" height="452" rx="18" fill="none" stroke="url(#gold-grad)" stroke-width="1" opacity="0.3" />
+
+  <circle cx="250" cy="190" r="130" fill="url(#gold-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Symbol Icon: Harp & Crown -->
+  <g transform="translate(185, 100) scale(1.3)" filter="url(#glow)">
+    <!-- Harp Frame -->
+    <path d="M20 100 C 20 40, 70 20, 90 20 L 90 100 Z" fill="none" stroke="url(#gold-grad)" stroke-width="7" stroke-linecap="round" />
+    <!-- Harp Strings -->
+    <line x1="35" y1="96" x2="35" y2="45" stroke="#fef08a" stroke-width="2.5" opacity="0.9" />
+    <line x1="48" y1="96" x2="48" y2="35" stroke="#fef08a" stroke-width="2.5" opacity="0.9" />
+    <line x1="61" y1="96" x2="61" y2="28" stroke="#fef08a" stroke-width="2.5" opacity="0.9" />
+    <line x1="74" y1="96" x2="74" y2="24" stroke="#fef08a" stroke-width="2.5" opacity="0.9" />
+    <!-- Crown at base -->
+    <path d="M15 105 L30 85 L50 100 L70 85 L85 105 Z" fill="url(#gold-grad)" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.8)" stroke="url(#gold-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#fef08a" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">다윗 왕 (King David)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">깊은 감성과 찬양의 성경 인물</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"여호와는 나의 목자시니 내게 부족함이 없으리로다"</text>
+</svg>

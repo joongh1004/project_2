@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTEN - 추천 컨텐츠 메타데이터 관리자 대시보드</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="sky-theme">
+
+  <!-- Header Navigation -->
+  <header class="admin-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">🕊️</span>
+        <span class="logo-text">LISTEN <small>Admin</small></span>
+      </a>
+      <div class="header-actions">
+        <button class="btn-secondary" onclick="AdminController.exportJSON()">📥 JSON 내보내기</button>
+        <button class="btn-secondary" onclick="AdminController.triggerImportJSON()">📤 JSON 가져오기</button>
+        <input type="file" id="import-file-input" accept=".json" style="display:none" onchange="AdminController.handleImportFile(event)">
+        <a href="index.html" class="btn-outline">← 메인 웹사이트로 이동</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PIN Authentication Overlay -->
+  <div id="admin-auth-overlay" class="modal-overlay">
+    <div class="auth-card">
+      <div class="auth-icon">🔒</div>
+      <h2>LISTEN 관리자 인증</h2>
+      <p>메타데이터 관리 시스템에 접근하려면 비밀번호를 입력하세요.</p>
+      <div class="input-group">
+        <input type="password" id="admin-pin-input" placeholder="비밀번호 (기본: 1234)" onkeypress="if(event.key==='Enter') AdminController.verifyPin()">
+        <button class="btn-primary" onclick="AdminController.verifyPin()">접속하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="admin-main">
+    <div class="admin-container">
+      
+      <!-- Admin Top Banner -->
+      <section class="admin-top-banner">
+        <div>
+          <h2>📊 추천 컨텐츠 메타데이터 DB 관리자</h2>
+          <p>사용자의 에니어그램 18개 날개 성향과 마음 상태에 맞춰 큐레이션될 추천 영상, 찬양, 칼럼 메타데이터를 관리합니다.</p>
+        </div>
+        <button class="btn-primary btn-lg" onclick="AdminController.openCreateModal()">+ 새 컨텐츠 등록</button>
+      </section>
+
+      <!-- Filter Bar -->
+      <section class="filter-toolbar">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" id="filter-search" placeholder="제목, 키워드, 성경구절 검색..." oninput="AdminController.renderTable()">
+        </div>
+        <div class="filter-selectors">
+          <select id="filter-category" onchange="AdminController.renderTable()">
+            <option value="all">전체 카테고리</option>
+            <option value="music">🎵 찬양/CCM</option>
+            <option value="video">🎬 설교/영상</option>
+            <option value="article">📝 영성칼럼</option>
+            <option value="book">📚 묵상집</option>
+            <option value="podcast">🎙️ 팟캐스트</option>
+          </select>
+          <select id="filter-type" onchange="AdminController.renderTable()">
+            <option value="all">전체 에니어그램 (1~9번)</option>
+            <option value="1">1번 개혁가</option>
+            <option value="2">2번 조력자</option>
+            <option value="3">3번 성취자</option>
+            <option value="4">4번 개성가</option>
+            <option value="5">5번 탐구자</option>
+            <option value="6">6번 수호자</option>
+            <option value="7">7번 열정가</option>
+            <option value="8">8번 도전자</option>
+            <option value="9">9번 평화주의자</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Data Table -->
+      <section class="table-card">
+        <div class="table-summary">
+          총 <strong id="total-count">0</strong>개의 추천 메타데이터 항목이 관리 중입니다.
+        </div>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">썸네일</th>
+                <th>제목 / URL</th>
+                <th style="width: 120px;">카테고리</th>
+                <th>타깃 에니어그램</th>
+                <th style="width: 90px;">노출여부</th>
+                <th style="width: 140px;">관리</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Edit/Create Modal -->
+  <div id="edit-modal" class="modal-overlay hidden">
+    <div class="editor-modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">컨텐츠 메타데이터 추가</h3>
+        <button class="close-btn" onclick="AdminController.closeModal()">&times;</button>
+      </div>
+      <form id="metadata-form" onsubmit="AdminController.saveItemForm(event)">
+        <div class="modal-body-split">
+          
+          <!-- Form Inputs Column -->
+          <div class="form-inputs-col">
+            <input type="hidden" id="form-id">
+            
+            <div class="form-group">
+              <label>컨텐츠 제목 *</label>
+              <input type="text" id="form-title" required placeholder="예: 완벽주의 스트레스를 내려놓는 묵상 찬양" oninput="AdminController.updateLivePreview()">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label>카테고리 *</label>
+                <select id="form-category" onchange="AdminController.updateLivePreview()">
+                  <option value="music">🎵 찬양/CCM</option>
+                  <option value="video">🎬 설교/영상</option>
+                  <option value="article">📝 영성칼럼</option>
+                  <option value="book">📚 묵상집</option>
+                  <option value="podcast">🎙️ 팟캐스트</option>
+                </select>
+              </div>
+              <div class="form-group flex-1">
+                <label>상태</label>
+                <div class="checkbox-inline">
+                  <input type="checkbox" id="form-active" checked>
+                  <label for="form-active">챗봇 추천 활성화</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>웹 URL (유튜브 입력 시 썸네일 자동 파싱) *</label>
+              <input type="url" id="form-url" required placeholder="https://www.youtube.com/watch?v=..." oninput="AdminController.handleUrlInput(this.value)">
+            </div>
+
+            <div class="form-group">
+              <label>썸네일 이미지 URL</label>
+              <input type="url" id="form-thumb" placeholder="https://..." oninput="AdminController.updateLivePreview()">
+            </div>
+
+            <div class="form-group">
+              <label>요약 설명 *</label>
+              <textarea id="form-summary" rows="2" required placeholder="챗봇이 추천 시 전달할 핵심 요약설명" oninput="AdminController.updateLivePreview()"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>연관 성경 구절</label>
+              <input type="text" id="form-verse" placeholder="예: 수고하고 짐 진 자들아 다 내게로 오라 (마태복음 11:28)" oninput="AdminController.updateLivePreview()">
+            </div>
+
+            <div class="form-group">
+              <label>타깃 에니어그램 18가지 날개 유형 선택 *</label>
+              <div class="wing-checkboxes-grid">
+                <label><input type="checkbox" class="enneagram-checkbox" value="1w9"> 1w9</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="1w2"> 1w2</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="2w1"> 2w1</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="2w3"> 2w3</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="3w2"> 3w2</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="3w4"> 3w4</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="4w3"> 4w3</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="4w5"> 4w5</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="5w4"> 5w4</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="5w6"> 5w6</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="6w5"> 6w5</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="6w7"> 6w7</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="7w6"> 7w6</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="7w8"> 7w8</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="8w7"> 8w7</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="8w9"> 8w9</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="9w8"> 9w8</label>
+                <label><input type="checkbox" class="enneagram-checkbox" value="9w1"> 9w1</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label>검색 키워드 태그 (쉼표 구분)</label>
+                <input type="text" id="form-tags" placeholder="평안, 은혜, CCM" oninput="AdminController.updateLivePreview()">
+              </div>
+              <div class="form-group flex-1">
+                <label>추천 상태 태그 (쉼표 구분)</label>
+                <input type="text" id="form-states" placeholder="스트레스, 완벽주의, 피로">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live Card Preview Column -->
+          <div class="preview-col">
+            <h4>📱 챗봇 추천 카드 실시간 미리보기</h4>
+            <div id="live-preview-card" class="preview-box">
+              <!-- Live preview inserted here -->
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="AdminController.closeModal()">취소</button>
+          <button type="submit" class="btn-primary">저장하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/content_db.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AdminController.init();
+    });
+  </script>
+</body>
+</html>

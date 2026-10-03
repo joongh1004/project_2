@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-ezra" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="emerald-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="50%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" rx="32" fill="url(#bg-ezra)" />
+  <rect x="16" y="16" width="468" height="468" rx="24" fill="none" stroke="url(#emerald-grad)" stroke-width="2" opacity="0.6" />
+
+  <circle cx="250" cy="190" r="120" fill="url(#emerald-grad)" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Scroll & Quill -->
+  <g transform="translate(175, 95) scale(1.3)" filter="url(#glow)">
+    <rect x="25" y="30" width="70" height="75" rx="6" fill="#0f172a" stroke="url(#emerald-grad)" stroke-width="3" />
+    <line x1="38" y1="45" x2="82" y2="45" stroke="#34d399" stroke-width="2.5" />
+    <line x1="38" y1="60" x2="82" y2="60" stroke="#34d399" stroke-width="2.5" />
+    <line x1="38" y1="75" x2="70" y2="75" stroke="#34d399" stroke-width="2.5" />
+    <!-- Feather Quill -->
+    <path d="M85 20 Q105 40 70 85" fill="none" stroke="#6ee7b7" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <rect x="60" y="320" width="380" height="130" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="url(#emerald-grad)" stroke-width="1.5" />
+  
+  <text x="250" y="360" text-anchor="middle" fill="#34d399" font-family="'Pretendard', sans-serif" font-size="28" font-weight="800" letter-spacing="1">학자 에스라 (Ezra)</text>
+  <text x="250" y="392" text-anchor="middle" fill="#cbd5e1" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500">진리를 연구하고 준행하는 율법 학자</text>
+  <text x="250" y="424" text-anchor="middle" fill="#94a3b8" font-family="'Pretendard', sans-serif" font-size="13" font-style="italic">"에스라가 율법을 연구하여 가르치기로 결심하였었더라"</text>
+</svg>

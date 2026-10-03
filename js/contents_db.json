@@ -1,0 +1,186 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-09-30T20:00:00Z",
+  "contents": [
+    {
+      "id": "content_1w9_01",
+      "title": "완벽주의 스트레스를 내려놓는 평안의 찬양 묵상",
+      "category": "music",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=5Q_Wz0p5eD8",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&auto=format&fit=crop",
+      "summary": "올바름과 완벽에 대한 부담을 하나님의 은혜 아래 내려놓고 깊은 안식을 누리는 찬양 집합입니다.",
+      "bibleVerse": "수고하고 짐 진 자들아 다 내게로 오라 내가 너희를 쉬게 하리라 (마태복음 11:28)",
+      "targetEnneagram": {
+        "primaryTypes": [1, 9],
+        "wings": ["1w9", "1w2", "9w1"]
+      },
+      "tags": ["평안", "완벽주의해소", "은혜", "CCM", "휴식"],
+      "recommendedState": ["스트레스", "완벽주의", "피로", "비판적마음"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_1w2_02",
+      "title": "의로움과 사랑이 만날 때: 바울의 개혁과 도덕적 사명",
+      "category": "article",
+      "contentType": "article",
+      "url": "https://m.blog.naver.com",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&auto=format&fit=crop",
+      "summary": "1번 유형 개혁가의 도덕적 기준과 2번 날개의 사랑의 마음이 올바르게 결합되는 영적 원리를 짚어봅니다.",
+      "bibleVerse": "오직 사랑 안에서 참된 것을 하여 범사에 그에게까지 자랄지라 (에베소서 4:15)",
+      "targetEnneagram": {
+        "primaryTypes": [1, 2],
+        "wings": ["1w2", "2w1"]
+      },
+      "tags": ["영성칼럼", "사명", "사랑과진리", "성장"],
+      "recommendedState": ["판단심", "서운함", "지침"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_2w3_03",
+      "title": "타인 인정 욕구에서 하나님 안의 진정한 가치 찾기",
+      "category": "video",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=3KzJ4-bU62k",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop",
+      "summary": "타인을 돕고 유능함을 인정받으려 애쓰기보다, 하나님의 조건 없는 사랑 안에서 자존감을 되찾는 메시지입니다.",
+      "bibleVerse": "너의 하나님 여호와가 너의 가운데에 계시니 그는 구원을 베푸실 전능자시라 (스바냐 3:17)",
+      "targetEnneagram": {
+        "primaryTypes": [2, 3],
+        "wings": ["2w3", "3w2", "2w1"]
+      },
+      "tags": ["인정욕구", "자기사랑", "정체성", "설교"],
+      "recommendedState": ["서운함", "공허함", "번아웃"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_3w4_04",
+      "title": "성공 중심의 삶에서 내면의 진정성과 조화 이루기",
+      "category": "podcast",
+      "contentType": "podcast",
+      "url": "https://www.podbbang.com",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&auto=format&fit=crop",
+      "summary": "성과와 이미지 너머 진정한 자아를 발견한 성경 인물 다니엘과 성경적 비즈니스 영성 팟캐스트입니다.",
+      "bibleVerse": "사람이 만일 온 천하를 얻고도 제 목숨을 잃으면 무엇이 유익하리요 (마태복음 16:26)",
+      "targetEnneagram": {
+        "primaryTypes": [3, 4],
+        "wings": ["3w4", "4w3"]
+      },
+      "tags": ["진정성", "성공과영성", "정체성", "오디오묵상"],
+      "recommendedState": ["공허함", "비교의식", "압박감"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_4w5_05",
+      "title": "우울과 외로움의 수렁에서 고백하는 깊은 기도 음악",
+      "category": "music",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=0X2aB5yD98g",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&auto=format&fit=crop",
+      "summary": "감성적이고 고독한 4번 유형을 위한 다윗의 시편 묵상 연주 곡집입니다.",
+      "bibleVerse": "여호와는 마음이 상한 자를 가까이 하시고 충심으로 통회하는 자를 구원하시는도다 (시편 34:18)",
+      "targetEnneagram": {
+        "primaryTypes": [4, 5],
+        "wings": ["4w5", "4w3", "5w4"]
+      },
+      "tags": ["감성묵상", "외로움", "시편기도", "CCM"],
+      "recommendedState": ["외로움", "우울함", "자기연민"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_5w6_06",
+      "title": "지식의 한계를 넘어 믿음의 담대함으로 나아가기",
+      "category": "book",
+      "contentType": "book",
+      "url": "https://www.aladin.co.kr",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&auto=format&fit=crop",
+      "summary": "관찰자 5번 유형을 위한 C.S. 루이스의 이성적 믿음과 도마의 영적 회복 가이드 도서 서평입니다.",
+      "bibleVerse": "너는 마음을 다하여 여호와를 신뢰하고 네 명철을 의지하지 말라 (잠언 3:5)",
+      "targetEnneagram": {
+        "primaryTypes": [5, 6],
+        "wings": ["5w6", "5w4", "6w5"]
+      },
+      "tags": ["변증학", "신뢰", "지혜", "도서요약"],
+      "recommendedState": ["불안", "고립감", "분석중독"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_6w7_07",
+      "title": "불안과 염려를 깨뜨리는 담대한 믿음의 찬양",
+      "category": "music",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=7u8V291AbZ0",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop",
+      "summary": "미래에 대한 염려와 신뢰의 위기를 겪는 6번 수호자 유형을 위한 평안과 담대함의 워십입니다.",
+      "bibleVerse": "아무 것도 염려하지 말고 다만 모든 일에 기도와 간구로 너희 구할 것을 감사함으로 하나님께 아뢰라 (빌립보서 4:6)",
+      "targetEnneagram": {
+        "primaryTypes": [6, 7],
+        "wings": ["6w7", "6w5", "7w6"]
+      },
+      "tags": ["평안", "담대함", "염려퇴치", "워십"],
+      "recommendedState": ["불안", "의심", "두려움"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_7w8_08",
+      "title": "산만함과 절제를 넘어 진정한 내면의 기쁨 발견하기",
+      "category": "video",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=9Z_K8900Abc",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&auto=format&fit=crop",
+      "summary": "자극과 일탈을 찾는 7번 열정가에게 십자가 안에서의 참된 만족과 영적 절제의 기쁨을 전하는 강의입니다.",
+      "bibleVerse": "주께서 생명의 길을 내게 보이시리니 주의 앞에는 충만한 기쁨이 있고 (시편 16:11)",
+      "targetEnneagram": {
+        "primaryTypes": [7, 8],
+        "wings": ["7w8", "7w6", "8w7"]
+      },
+      "tags": ["기쁨", "절제", "참만족", "강의"],
+      "recommendedState": ["충동적", "지루함", "회피"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_8w9_09",
+      "title": "통제와 분노를 하나님의 부드러움으로 바꾸기",
+      "category": "article",
+      "contentType": "article",
+      "url": "https://m.blog.naver.com",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop",
+      "summary": "8번 도전자의 리더십과 9번 날개의 포용성이 예수님의 온유함과 결합될 때 나타나는 주도적 영성 칼럼입니다.",
+      "bibleVerse": "나는 마음이 온유하고 겸손하니 나의 멍에를 메고 내게 배우라 (마태복음 11:29)",
+      "targetEnneagram": {
+        "primaryTypes": [8, 9],
+        "wings": ["8w9", "8w7", "9w8"]
+      },
+      "tags": ["리더십", "온유함", "용서", "칼럼"],
+      "recommendedState": ["분노", "통제욕구", "갈등"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    },
+    {
+      "id": "content_9w1_10",
+      "title": "갈등 회피를 넘어 적극적인 하나님 나라의 평화 이루기",
+      "category": "music",
+      "contentType": "youtube",
+      "url": "https://www.youtube.com/watch?v=1x2z3y4w5v6",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&auto=format&fit=crop",
+      "summary": "수동성과 회피에 빠지기 쉬운 9번 평화주의자에게 거룩한 결단과 소명을 부여하는 힐링 찬양입니다.",
+      "bibleVerse": "화평하게 하는 자는 복이 있나니 그들이 하나님의 아들이라 일컬음을 받을 것임이요 (마태복음 5:9)",
+      "targetEnneagram": {
+        "primaryTypes": [9, 1],
+        "wings": ["9w1", "9w8", "1w9"]
+      },
+      "tags": ["평화", "소명", "용기", "CCM"],
+      "recommendedState": ["무기력", "회피", "우유부단"],
+      "isActive": true,
+      "createdAt": "2026-09-30"
+    }
+  ]
+}
