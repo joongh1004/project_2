@@ -8,9 +8,48 @@
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/splash.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="sky-theme">
+
+  <!-- ===== SPLASH SCREEN ===== -->
+  <div id="splash-screen">
+    <!-- Sky background layers -->
+    <div class="splash-sky-bg"></div>
+    <div class="splash-cloud cloud-1"></div>
+    <div class="splash-cloud cloud-2"></div>
+    <div class="splash-cloud cloud-3"></div>
+    <div class="splash-light-ray"></div>
+
+    <!-- Floating rain droplets -->
+    <div class="rain-drops" id="rain-drops"></div>
+
+    <!-- Center content -->
+    <div class="splash-content">
+      <div class="splash-logo">Listen</div>
+      <p class="splash-subtitle">너의 이야기를 들어줄께</p>
+
+      <!-- Main clickable water bubble -->
+      <div class="splash-bubble-wrap">
+        <div class="bubble-ring ring-1"></div>
+        <div class="bubble-ring ring-2"></div>
+        <div class="bubble-ring ring-3"></div>
+        <button class="splash-bubble" id="splash-bubble-btn" aria-label="시작하기">
+          <div class="bubble-inner">
+            <div class="bubble-reflection"></div>
+            <div class="bubble-cloud"></div>
+            <span class="bubble-hint">touch</span>
+          </div>
+        </button>
+      </div>
+
+      <p class="splash-tap-hint">물방울을 터치하세요</p>
+    </div>
+  </div>
+  <!-- ===== END SPLASH ===== -->
+
   <div id="app">
     
     <!-- Navigation Header -->
@@ -269,5 +308,55 @@
   <script src="js/content_db.js"></script>
   <script src="js/chat.js"></script>
   <script src="js/app.js"></script>
+
+  <script>
+    /* ---- Splash Screen Logic ---- */
+    (function() {
+      const splash = document.getElementById('splash-screen');
+      const btn    = document.getElementById('splash-bubble-btn');
+      const rainEl = document.getElementById('rain-drops');
+
+      // Already seen this session? skip splash
+      if (sessionStorage.getItem('listen_splash_done')) {
+        splash.style.display = 'none';
+        return;
+      }
+
+      // Create animated rain droplets
+      function createDroplets() {
+        for (let i = 0; i < 28; i++) {
+          const drop = document.createElement('div');
+          drop.className = 'rain-drop';
+          const size   = Math.random() * 10 + 5;        // 5~15px
+          const left   = Math.random() * 100;           // 0~100%
+          const delay  = Math.random() * 6;             // 0~6s
+          const dur    = Math.random() * 4 + 4;         // 4~8s
+          const opacity= Math.random() * 0.5 + 0.3;    // 0.3~0.8
+          drop.style.cssText = [
+            `width:${size}px`,
+            `height:${size * 1.4}px`,
+            `left:${left}%`,
+            `animation-delay:${delay}s`,
+            `animation-duration:${dur}s`,
+            `opacity:${opacity}`
+          ].join(';');
+          rainEl.appendChild(drop);
+        }
+      }
+      createDroplets();
+
+      // Bubble click → transition to main
+      btn.addEventListener('click', function() {
+        btn.classList.add('bubble-burst');
+        setTimeout(function() {
+          splash.classList.add('splash-exit');
+          setTimeout(function() {
+            splash.style.display = 'none';
+            sessionStorage.setItem('listen_splash_done', '1');
+          }, 800);
+        }, 400);
+      });
+    })();
+  </script>
 </body>
 </html>
